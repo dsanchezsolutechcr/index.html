@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SolutechCR | Servicios de Tecnología y Automatización</title>
+    <!-- FontAwesome para Íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #007bc7; /* Azul Cobros 360 */
+            --secondary: #43b02a; /* Verde Cobros 360 */
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --gray: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        /* Header / Navegación */
+        header {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-header {
+            background-color: var(--secondary);
+            color: white !important;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(135deg, rgba(0,123,199,0.05) 0%, rgba(67,176,42,0.05) 100%);
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            margin-right: 1rem;
+        }
+
+        .btn-primary:hover {
+            background: #005f9e;
+            transform: translateY(-2px);
+        }
+
+        .btn-whatsapp {
+            background: var(--secondary);
+            color: white;
+        }
+
+        .btn-whatsapp:hover {
+            background: #359020;
+            transform: translateY(-2px);
+        }
+
+        /* Destacado: Cobros 360 */
+        .featured-product {
+            padding: 4rem 2rem;
+            background: #ffffff;
+        }
+
+        .featured-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .product-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .product-info {
+            flex: 1.2;
+            min-width: 300px;
+        }
+
+        .badge {
+            background: rgba(67, 176, 42, 0.15);
+            color: var(--secondary);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .product-info h2 {
+            font-size: 2rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .product-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .product-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: var(--gray);
+        }
+
+        .product-features i {
+            color: var(--secondary);
+        }
+
+        /* Servicios */
+        .services {
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 0.8rem;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Nosotros / Misión y Visión */
+        .about {
+            background: #ffffff;
+            padding: 4rem 2rem;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .about-box {
+            background: var(--light);
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .about-box.vision {
+            border-left-color: var(--secondary);
+        }
+
+        .about-box h3 {
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 3rem auto 0;
+        }
+
+        .value-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .value-item i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contacto */
+        .contact {
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-cards {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .contact-card i {
+            font-size: 2rem;
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <div class="nav-container">
+            <div class="logo-text">Solutech<span>CR</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#cobros360">Cobros 360</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                    <li><a href="#contacto" class="btn-header">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <h1>Líderes en Tecnología y <span>Automatización</span> en Costa Rica</h1>
+            <p>Transformamos la operación de tu empresa con soluciones digitales integrales y un servicio cercano orientado a resultados medibles.</p>
+            <a href="#cobros360" class="btn btn-primary">Conocer Cobros 360</a>
+            <a href="https://wa.me/50689303082" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Contactar por WhatsApp</a>
+        </div>
+    </section>
+
+    <!-- Producto Estrella: Cobros 360 -->
+    <section id="cobros360" class="featured-product">
+        <div class="featured-container">
+            <div class="product-image">
+                <img src="logo-cobros360.png" alt="Cobros 360 - Solución de Cobranza Digital">
+            </div>
+            <div class="product-info">
+                <span class="badge">Producto Destacado</span>
+                <h2>Cobros 360: La forma más simple de cobrar</h2>
+                <p>Solución de Cobranza Digital por WhatsApp y sitio de recaudo para ASADAS, cooperativas, asociaciones y empresas de servicios.</p>
+                <ul class="product-features">
+                    <li><i class="fas fa-check-circle"></i> Consulta de saldos y recordatorios por WhatsApp.</li>
+                    <li><i class="fas fa-check-circle"></i> Sitio de recaudo web para pago rápido con tarjeta.</li>
+                    <li><i class="fas fa-check-circle"></i> Confirmación y comprobantes digitales automáticos.</li>
+                    <li><i class="fas fa-check-circle"></i> Pago por SINPE Móvil y afiliación a cargos automáticos.</li>
+                    <li><i class="fas fa-check-circle"></i> Reducción de la morosidad y menor carga operativa 24/7.</li>
+                </ul>
+                <a href="https://wa.me/50689303082?text=Hola,%20me%20interesa%20solicitar%20una%20demostración%20de%20Cobros%20360" class="btn btn-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> Solicitar Demostración</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios Adicionales -->
+    <section id="servicios" class="services">
+        <div class="section-title">
+            <h2>Nuestros Servicios de Tecnología</h2>
+            <p>Soluciones a la medida diseñadas para impulsar la competitividad de su negocio.</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-code"></i></div>
+                <h3>Desarrollo a la Medida</h3>
+                <p>Creación de software, aplicaciones móviles y sitios web optimizados e intuitivos.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                <h3>Facturación Electrónica</h3>
+                <p>Sistemas integrados de facturación adaptados a la normativa costarricense.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-users-cog"></i></div>
+                <h3>Tercerización de Servicios</h3>
+                <p>Outsourcing de personal técnico y soporte especializado para fortalecer su operación.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Consultoría Tecnológica</h3>
+                <p>Asesoría estratégica para optimizar procesos y guiar la transformación digital de su empresa.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nosotros / Visión, Misión y Valores -->
+    <section id="nosotros" class="about">
+        <div class="section-title">
+            <h2>Acerca de SolutechCR</h2>
+        </div>
+        <div class="about-container">
+            <div class="about-box">
+                <h3>Nuestra Misión</h3>
+                <p>"Impulsar la competitividad y eficiencia de las empresas en Costa Rica mediante soluciones integrales de tecnología y automatización, acompañadas de un servicio cercano, transparente y orientado a generar un impacto medible en su negocio."</p>
+            </div>
+            <div class="about-box vision">
+                <h3>Nuestra Visión</h3>
+                <p>"Ser el referente en tecnología y automatización en Costa Rica, transformando cada interacción en un valor real y tangible para nuestros clientes."</p>
+            </div>
+        </div>
+
+        <div class="values-grid">
+            <div class="value-item">
+                <i class="fas fa-bullseye"></i>
+                <h4>Resultado Medible</h4>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-comments"></i>
+                <h4>Claridad Técnica</h4>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-bolt"></i>
+                <h4>Agilidad Operativa</h4>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-heart"></i>
+                <h4>Excelencia en Servicio</h4>
+            </div>
+            <div class="value-item">
+                <i class="fas fa-shield-alt"></i>
+                <h4>Transparencia</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="contact">
+        <div class="section-title">
+            <h2>Contáctenos</h2>
+            <p>Estamos listos para acompañarle en la modernización de sus procesos.</p>
+        </div>
+        <div class="contact-cards">
+            <div class="contact-card">
+                <i class="fas fa-phone-alt"></i>
+                <h3>Teléfono / WhatsApp</h3>
+                <p><a href="https://wa.me/50689303082" target="_blank">+506 8930-3082</a></p>
+            </div>
+            <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h3>Correo Electrónico</h3>
+                <p><a href="mailto:dsanchez@solutechcr@solutions">dsanchez@solutechcr@solutions</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 SolutechCR. Lic. Deivyd Sánchez Chavarría. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
